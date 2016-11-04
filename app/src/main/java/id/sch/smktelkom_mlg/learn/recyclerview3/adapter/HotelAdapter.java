@@ -18,6 +18,7 @@ import id.sch.smktelkom_mlg.learn.recyclerview3.model.Hotel;
  * Created by BARON on 11/3/2016.
  */
 
+
 public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ViewHolder> {
     ArrayList<Hotel> hotelList;
     IHotelAdapter mIHotelAdapter;
@@ -27,9 +28,9 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ViewHolder> 
         mIHotelAdapter = (IHotelAdapter) context;
     }
 
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
@@ -41,7 +42,6 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ViewHolder> 
         holder.tvJudul.setText(hotel.judul);
         holder.tvDeskripsi.setText(hotel.deskripsi);
         holder.ivFoto.setImageURI(Uri.parse(hotel.foto));
-
     }
 
     @Override
@@ -51,50 +51,31 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ViewHolder> 
         return 0;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView ivFoto;
-        TextView tvJudul;
-        TextView tvDeskripsi;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            ivFoto = (ImageView) itemView.findViewById(R.id.imageView);
-            tvJudul = (TextView) itemView.findViewById(R.id.textViewJudul);
-            tvDeskripsi = (TextView) itemView.findViewById(R.id.textViewDeskripsi);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mIHotelAdapter.doClick(getAdapterPosition());
-                }
-            });
-        }
-
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView ivFoto;
-        TextView tvJudul;
-        TextView tvDeskripsi;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            ivFoto = (ImageView) itemView.findViewById(R.id.imageView);
-            tvJudul = (TextView) itemView.findViewById(R.id.textViewJudul);
-            tvDeskripsi = (TextView) itemView.findViewById(R.id.textViewDeskripsi);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mIHotelAdapter.doClick(getAdapterPosition());
-                }
-            });
-        }
-
-    }
-
     public interface IHotelAdapter {
         void doClick(int pos);
+
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView ivFoto;
+        TextView tvJudul;
+        TextView tvDeskripsi;
+
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            ivFoto = (ImageView) itemView.findViewById(R.id.imageView);
+            tvJudul = (TextView) itemView.findViewById(R.id.textViewJudul);
+            tvDeskripsi = (TextView) itemView.findViewById(R.id.textViewDeskripsi);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mIHotelAdapter.doClick(getAdapterPosition());
+                }
+            });
+        }
     }
 
 }
+
